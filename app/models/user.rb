@@ -10,7 +10,10 @@ class User < ActiveRecord::Base
   has_many :surveysResponses, class_name: "SurveysResponse"
   has_many :likes
   has_many :interactions
-  has_many :conversations, :foreign_key => :sender_id
+  has_many :messages
+  has_many :user_conversations
+  has_many :conversations, through: :user_conversations
+  
   
   validates_presence_of :city, :cp, :username, :email, :country, :territory_attachment, :first_name, :last_name, :message => "Ce champ est obligatoire"
   validates_uniqueness_of :email, :username, :message => "Déjà utilisé"

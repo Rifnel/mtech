@@ -87,7 +87,6 @@ ActiveRecord::Schema.define(version: 20160520092258) do
 
   add_index "likes", ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id"
 
-
   create_table "messages", force: :cascade do |t|
     t.text     "body"
     t.integer  "conversation_id"
@@ -100,7 +99,6 @@ ActiveRecord::Schema.define(version: 20160520092258) do
   add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id"
   add_index "messages", ["user_id"], name: "index_messages_on_user_id"
 
-
   create_table "notifications", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "message"
@@ -109,7 +107,6 @@ ActiveRecord::Schema.define(version: 20160520092258) do
     t.datetime "created_at"
     t.boolean  "read"
   end
-
 
   create_table "projects", force: :cascade do |t|
     t.datetime "created_at",                       null: false

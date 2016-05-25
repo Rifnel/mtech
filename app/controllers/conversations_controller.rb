@@ -5,7 +5,7 @@ class ConversationsController < ApplicationController
 	def index
 		@conversations = Conversation.all
 		@users = User.all
-		@messages = Message.all
+		@messages = Message.all.order("created_at DESC")
 	end
 
 	def create
